@@ -41,12 +41,7 @@ function Nosotros() {
             habitasse platea dictumst. Duis libero diam, tempus quis metus eu,
             ultricies viverra erat. Maecenas accumsan, eros fermentum auctor
             ultricies, tortor nunc aliquet dui, nec consequat turpis tortor at
-            velit. Cras vitae leo sed lorem dignissim ultricies. Praesent non
-            lectus at sapien volutpat hendrerit. Duis id consequat mauris, ac
-            feugiat lorem. Pellentesque a lacus suscipit, convallis mauris et,
-            scelerisque felis. Vivamus sollicitudin, tortor quis laoreet
-            vehicula, nunc diam ullamcorper nisl, eget hendrerit mauris augue et
-            tortor.
+            velit.
           </p>
           <p>
             Cras feugiat sit amet augue id fermentum. Pellentesque gravida ac
@@ -56,12 +51,7 @@ function Nosotros() {
             habitasse platea dictumst. Duis libero diam, tempus quis metus eu,
             ultricies viverra erat. Maecenas accumsan, eros fermentum auctor
             ultricies, tortor nunc aliquet dui, nec consequat turpis tortor at
-            velit. Cras vitae leo sed lorem dignissim ultricies. Praesent non
-            lectus at sapien volutpat hendrerit. Duis id consequat mauris, ac
-            feugiat lorem. Pellentesque a lacus suscipit, convallis mauris et,
-            scelerisque felis. Vivamus sollicitudin, tortor quis laoreet
-            vehicula, nunc diam ullamcorper nisl, eget hendrerit mauris augue et
-            tortor.
+            velit.
           </p>
         </div>
       </div>
