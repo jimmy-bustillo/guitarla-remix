@@ -1,13 +1,22 @@
 import { useLoaderData } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
-import styles from '~/styles/guitarras.css'
+import styles from "~/styles/guitarras.css"
 
-export function links(){
+export function meta({ data }) {
+  return [
+    { title: `GuitarLA - ${data.data[0].attributes.nombre}` },
+    {
+      description: `Guitarras, venta de guitarras, guitarra${data.data[0].attributes.nombre}`
+      },
+  ]
+}
+
+export function links() {
   return [
     {
-      rel: 'stylesheet',
-      href: styles
-    }
+      rel: "stylesheet",
+      href: styles,
+    },
   ]
 }
 
@@ -31,10 +40,10 @@ function Guitarra() {
         alt={`Imagen de la guitarra ${nombre}`}
       />
 
-      <div className="contenido">
-        <h3 className="">{nombre}</h3>
-        <p className="texto">{descripcion}</p>
-        <p className="precio">{precio}</p>
+      <div className='contenido'>
+        <h3 className=''>{nombre}</h3>
+        <p className='texto'>{descripcion}</p>
+        <p className='precio'>{precio}</p>
       </div>
     </main>
   )
