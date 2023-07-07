@@ -1,4 +1,13 @@
-import { Meta, Links, Outlet, Scripts, LiveReload } from "@remix-run/react"
+import {
+  Meta,
+  Links,
+  Outlet,
+  Scripts,
+  LiveReload,
+  useRouteError,
+  isRouteErrorResponse,
+  Link
+} from "@remix-run/react"
 import styles from "~/styles/index.css"
 import Header from "~/components/header"
 import Footer from "~/components/footer"
@@ -62,4 +71,19 @@ function Document({ children }) {
       </body>
     </html>
   )
+}
+
+/** Manejo de errores **/
+export function ErrorBoundary() {
+  const error = useRouteError()
+  if (isRouteErrorResponse(error)) {
+    return (
+      <Document>
+        <p className='error'>
+          {error.status} {error.statusText}'
+          <Link className="error-enlace" to='/'>Tal vez quieras volver a la pagina principal</Link>
+        </p>
+      </Document>
+    )
+  }
 }
