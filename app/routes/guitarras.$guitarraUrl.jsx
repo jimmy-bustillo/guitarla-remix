@@ -25,7 +25,15 @@ export async function loader({ params }) {
 
   const guitarra = await getGuitarra(guitarraUrl)
 
+  if(guitarra.data.length === 0){
+    throw new Response('',{
+      status: 404,
+      statusText: 'Guitarra no encontrada'
+    })
+  }
+
   return guitarra
+
 }
 
 function Guitarra() {
