@@ -134,16 +134,16 @@ main {
   text-align: center;
 }
 
-.error, .error-enlace {
-  font-size: 2rem ;
+.error,
+.error-enlace {
+  font-size: 2rem;
   text-align: center;
   margin-top: 5rem;
 }
 
-.error-enlace{
+.error-enlace {
   display: block;
   color: var(--primary);
   text-decoration: none;
   font-size: 1.8rem;
-
 }
