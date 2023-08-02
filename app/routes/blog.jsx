@@ -1,7 +1,14 @@
-import { getPosts } from "~/models/post.server"
+import { getPosts } from "~/models/posts.server"
 import { useLoaderData } from "@remix-run/react"
 import Post from "../components/post"
 import styles from "~/styles/blog.css"
+
+export function meta() {
+  return [
+    { title: "GuitarLA - Nuestro Blog" },
+    { description: "GuitarLA, Blog de música y venta de guitarras" },
+  ]
+}
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }]

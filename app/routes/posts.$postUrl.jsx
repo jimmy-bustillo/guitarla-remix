@@ -1,14 +1,20 @@
 import { useLoaderData } from "@remix-run/react"
-import { getPost } from "~/models/post.server"
+import { getPost } from "~/models/posts.server"
 import { formatearFecha } from "~/utils/helpers"
 import styles from "~/styles/blog.css"
 
 export function meta({ data }) {
+  if (!data) {
+    return [
+      { title: "GuitarLA - Entrada no encontrada" },
+      { description: "Guitarras, venta de guitarras, entrada no encontrada" },
+    ]
+  }
   return [
-    { title: `GuitarLA - ${data.data[0].attributes.nombre}` },
+    { title: `GuitarLA - ${data.data[0].attributes.titulo}` },
     {
-      description: `Guitarras, venta de guitarras, guitarra${data.data[0].attributes.nombre}`
-      },
+      description: `Guitarras, venta de guitarras, entrada ${data.data[0].attributes.titulo}`,
+    },
   ]
 }
 
