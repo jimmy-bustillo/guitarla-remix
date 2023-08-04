@@ -1,21 +1,11 @@
 import { useLoaderData } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
-import styles from "~/styles/guitarras.css"
 
 export function meta({ data }) {
   return [
     { title: `GuitarLA - ${data.data[0].attributes.nombre}` },
     {
-      description: `Guitarras, venta de guitarras, guitarra${data.data[0].attributes.nombre}`
-      },
-  ]
-}
-
-export function links() {
-  return [
-    {
-      rel: "stylesheet",
-      href: styles,
+      description: `Guitarras, venta de guitarras, guitarra${data.data[0].attributes.nombre}`,
     },
   ]
 }
@@ -25,15 +15,14 @@ export async function loader({ params }) {
 
   const guitarra = await getGuitarra(guitarraUrl)
 
-  if(guitarra.data.length === 0){
-    throw new Response('',{
+  if (guitarra.data.length === 0) {
+    throw new Response("", {
       status: 404,
-      statusText: 'Guitarra no encontrada'
+      statusText: "Guitarra no encontrada",
     })
   }
 
   return guitarra
-
 }
 
 function Guitarra() {
@@ -41,7 +30,7 @@ function Guitarra() {
   const { nombre, descripcion, imagen, precio } = guitarra.data[0].attributes
 
   return (
-    <main className='contenedor guitarra'>
+    <div className='guitarra'>
       <img
         className='imagen'
         src={imagen.data.attributes.url}
@@ -51,9 +40,9 @@ function Guitarra() {
       <div className='contenido'>
         <h3 className=''>{nombre}</h3>
         <p className='texto'>{descripcion}</p>
-        <p className='precio'>{precio}</p>
+        <p className='precio'>${precio}</p>
       </div>
-    </main>
+    </div>
   )
 }
 
