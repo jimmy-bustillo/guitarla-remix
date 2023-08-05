@@ -69,6 +69,7 @@ main {
 
 .header .navegacion {
   display: flex;
+  align-items: center;
   gap: 2rem;
   margin-top: 5rem;
 }
@@ -83,6 +84,11 @@ main {
   transition-property: background-color;
   transition-duration: 300ms;
 }
+
+.header .navegacion img{
+  width: 3rem;
+}
+
 
 @media (min-width: 768px) {
   .header .navegacion {
@@ -130,6 +136,10 @@ main {
   font-weight: 700;
 }
 
+.footer .navegacion a:last-of-type{
+  display: none;
+}
+
 .footer .copyright {
   text-align: center;
 }
@@ -166,3 +176,4 @@ main {
 .enlace:hover{
   background-color: var(--primary);
 }
+
