@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import {
   Meta,
   Links,
@@ -6,7 +8,7 @@ import {
   LiveReload,
   useRouteError,
   isRouteErrorResponse,
-  Link
+  Link,
 } from "@remix-run/react"
 import styles from "~/styles/index.css"
 import Header from "~/components/header"
@@ -47,9 +49,19 @@ export function links() {
 }
 
 export default function App() {
+  const [carrito, setCarrito] = useState([])
+
+  const agregarCarrito = (guitarra) => {
+    setCarrito([...carrito, guitarra])
+  }
+
   return (
     <Document>
-      <Outlet />
+      <Outlet
+        context={{
+          agregarCarrito,
+        }}
+      />
     </Document>
   )
 }
@@ -81,7 +93,9 @@ export function ErrorBoundary() {
       <Document>
         <p className='error'>
           {error.status} {error.statusText}'
-          <Link className="error-enlace" to='/'>Tal vez quieras volver a la pagina principal</Link>
+          <Link className='error-enlace' to='/'>
+            Tal vez quieras volver a la pagina principal
+          </Link>
         </p>
       </Document>
     )
