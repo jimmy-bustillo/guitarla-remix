@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import {
   Meta,
@@ -13,6 +13,7 @@ import {
 import styles from "~/styles/index.css"
 import Header from "~/components/header"
 import Footer from "~/components/footer"
+import { json } from "@remix-run/node"
 
 export function meta() {
   return [
@@ -49,7 +50,15 @@ export function links() {
 }
 
 export default function App() {
-  const [carrito, setCarrito] = useState([])
+  const carritoLS =
+    typeof window !== "undefined"
+      && JSON.parse(localStorage.getItem("carrito")) || []
+
+  const [carrito, setCarrito] = useState(carritoLS)
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+  }, [carrito])
 
   const agregarCarrito = (guitarra) => {
     if (carrito.some((guitarraState) => guitarraState.id === guitarra.id)) {
@@ -80,8 +89,10 @@ export default function App() {
     setCarrito(carritoActualizado)
   }
 
-  const eliminarGuitarra = id => {
-    const carritoActualizado = carrito.filter(guitarraState => guitarraState.id !== id)
+  const eliminarGuitarra = (id) => {
+    const carritoActualizado = carrito.filter(
+      (guitarraState) => guitarraState.id !== id
+    )
     setCarrito(carritoActualizado)
   }
 
@@ -92,7 +103,7 @@ export default function App() {
           agregarCarrito,
           carrito,
           actualizarCantidad,
-          eliminarGuitarra
+          eliminarGuitarra,
         }}
       />
     </Document>
